@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = "Overview"
 
         val buttonA = findViewById<Button>(R.id.buttonA)
         val buttonB = findViewById<Button>(R.id.buttonB)

@@ -11,7 +11,8 @@
         android:theme="@style/Theme.AlphabetBook">
         <activity
             android:name=".LetterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

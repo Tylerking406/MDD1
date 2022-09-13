@@ -27,6 +27,8 @@ class LetterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_letter_page)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Letter"
 
         val next = findViewById<ImageButton>(R.id.buttonNext)
         val prev = findViewById<ImageButton>(R.id.buttonPrev)
