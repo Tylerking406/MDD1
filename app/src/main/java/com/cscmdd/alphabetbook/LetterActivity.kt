@@ -55,18 +55,18 @@ class LetterActivity : AppCompatActivity() {
             if (position == 0) {
                 imageSwitcher?.setImageResource(images[position])
 
-                prev.setVisibility(View.INVISIBLE)
+                prev.visibility = View.INVISIBLE
                 firstPage.isEnabled = false
 
-                next.setVisibility(View.VISIBLE)
+                next.visibility = View.VISIBLE
                 lastPage.isEnabled = true
             } else if (position in 0..25) {
                 imageSwitcher?.setImageResource(images[position])
 
-                prev.setVisibility(View.VISIBLE)
+                prev.visibility = View.VISIBLE
                 firstPage.isEnabled = true
 
-                next.setVisibility(View.VISIBLE)
+                next.visibility = View.VISIBLE
                 lastPage.isEnabled = true
             }
         }
@@ -76,18 +76,18 @@ class LetterActivity : AppCompatActivity() {
             if (position == images.size - 1) {
                 imageSwitcher?.setImageResource(images[position])
 
-                next.setVisibility(View.INVISIBLE)
+                next.visibility = View.INVISIBLE
                 lastPage.isEnabled = false
 
-                prev.setVisibility(View.VISIBLE)
+                prev.visibility = View.VISIBLE
                 firstPage.isEnabled = true
             } else if (position in 0..25) {
                 imageSwitcher?.setImageResource(images[position])
 
-                prev.setVisibility(View.VISIBLE)
+                prev.visibility = View.VISIBLE
                 firstPage.isEnabled = true
 
-                next.setVisibility(View.VISIBLE)
+                next.visibility = View.VISIBLE
                 lastPage.isEnabled = true
             }
         }
@@ -97,10 +97,10 @@ class LetterActivity : AppCompatActivity() {
             position = 0
             imageSwitcher?.setImageResource(images[position])
 
-            prev.setVisibility(View.INVISIBLE)
+            prev.visibility = View.INVISIBLE
             firstPage.isEnabled = false
 
-            next.setVisibility(View.VISIBLE)
+            next.visibility = View.VISIBLE
             lastPage.isEnabled = true
         }
 
@@ -109,28 +109,28 @@ class LetterActivity : AppCompatActivity() {
             position = images.size - 1
             imageSwitcher?.setImageResource(images[position])
 
-            next.setVisibility(View.INVISIBLE)
+            next.visibility = View.INVISIBLE
             lastPage.isEnabled = false
 
-            prev.setVisibility(View.VISIBLE)
+            prev.visibility = View.VISIBLE
             firstPage.isEnabled = true
         }
 
         // overview Page button functionality
         overviewPage.setOnClickListener {
-            val intenta = Intent(this, MainActivity::class.java)
-            startActivity(intenta)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         if (position == 0) {
-            prev.setVisibility(View.INVISIBLE)
+            prev.visibility = View.INVISIBLE
         } else {
-            prev.setVisibility(View.VISIBLE)
+            prev.visibility = View.VISIBLE
         }
         if (position == images.size - 1) {
-            next.setVisibility(View.INVISIBLE)
+            next.visibility = View.INVISIBLE
         } else {
-            next.setVisibility(View.VISIBLE)
+            next.visibility = View.VISIBLE
         }
 
         firstPage.isEnabled = position != 0
