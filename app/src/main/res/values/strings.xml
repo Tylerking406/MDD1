@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Alphabet Book</string>
+    <string name="Aa">Aa</string>
+    <string name="Bb">Bb</string>
+    <string name="Cc">Cc</string>
+    <string name="Dd">Dd</string>
+    <string name="Ee">Ee</string>
+    <string name="Ff">Ff</string>
+    <string name="Gg">Gg</string>
+    <string name="Hh">Hh</string>
+    <string name="Ii">Ii</string>
+    <string name="Jj">Jj</string>
+    <string name="Kk">Kk</string>
+    <string name="Ll">Ll</string>
+    <string name="Mm">Mm</string>
+    <string name="Nn">Nn</string>
+    <string name="Oo">Oo</string>
+    <string name="Pp">Pp</string>
+    <string name="Qq">Qq</string>
+    <string name="Rr">Rr</string>
+    <string name="Ss">Ss</string>
+    <string name="Tt">Tt</string>
+    <string name="Uu">Uu</string>
+    <string name="Vv">Vv</string>
+    <string name="Ww">Ww</string>
+    <string name="Xx">Xx</string>
+    <string name="Yy">Yy</string>
+    <string name="Zz">Zz</string>
+    <string name="buttonFirstPage">First page</string>
+    <string name="buttonLastPage">Last Page</string>
+    <string name="buttonPrev">Prev</string>
+    <string name="buttonNext">Next</string>
+    <string name="buttonOverview">Overview Page</string>
+</resources>
