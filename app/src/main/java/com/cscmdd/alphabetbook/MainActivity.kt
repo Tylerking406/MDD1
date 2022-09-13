@@ -1,11 +1,29 @@
 package com.cscmdd.alphabetbook
 
+import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
+import java.io.File
+import java.io.OutputStream
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private  var readPermissionGranted = false
+    private  var writePermissionGranted = false
+    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,9 +56,15 @@ class MainActivity : AppCompatActivity() {
         val buttonY = findViewById<Button>(R.id.buttonY)
         val buttonZ = findViewById<Button>(R.id.buttonZ)
 
-        val intent = Intent(this, LetterActivity::class.java)
 
+        val intent = Intent(this, LetterActivity::class.java)
+        val img = findViewById<ImageView>(R.id.image1)
         buttonA.setOnClickListener{
+
+            val bitmap = img.toDrawable().toBitmap()
+            saveImage(bitmap)
+
+
             intent.putExtra("POSITION", 0)
             startActivity(intent)
         }
@@ -169,5 +193,29 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("POSITION", 25)
             startActivity(intent)
         }
+
+
     }
+    private  fun saveImage(bitmap: Bitmap){
+        val outputStream: OutputStream
+        try {
+            if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.Q){
+                val resolver = contentResolver
+                val contentValues =ContentValues()
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME,"Image_"+".jpg")
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE,"Image/jpg")
+                contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH,Environment.DIRECTORY_PICTURES+File.separator+"TestFolder")
+                val imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues)
+                outputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri)!!)!!
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
+                Objects.requireNonNull<OutputStream>(outputStream)
+                Toast.makeText(this,"Image Saved",Toast.LENGTH_SHORT).show()
+
+            }
+        }catch (e : Exception){
+            Toast.makeText(this,"Image not Saved",Toast.LENGTH_SHORT).show()
+
+        }
+    }
+
 }
