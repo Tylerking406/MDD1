@@ -136,4 +136,34 @@ class LetterActivity : AppCompatActivity() {
         firstPage.isEnabled = position != 0
         lastPage.isEnabled = position != images.size - 1
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("POSITION", position)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        position=  savedInstanceState.getInt("POSITION", 0)
+        val next = findViewById<ImageButton>(R.id.buttonNext)
+        val prev = findViewById<ImageButton>(R.id.buttonPrev)
+        val firstPage = findViewById<Button>(R.id.buttonFirst)
+        val lastPage = findViewById<Button>(R.id.buttonLast)
+        val overviewPage = findViewById<Button>(R.id.buttonOverview)
+        val imageSwitcher = findViewById<ImageSwitcher>(R.id.imageSwitcher)
+        imageSwitcher?.setImageResource(images[position])
+        if (position == 0) {
+            prev.visibility = View.INVISIBLE
+        } else {
+            prev.visibility = View.VISIBLE
+        }
+        if (position == images.size - 1) {
+            next.visibility = View.INVISIBLE
+        } else {
+            next.visibility = View.VISIBLE
+        }
+
+        firstPage.isEnabled = position != 0
+        lastPage.isEnabled = position != images.size - 1
+    }
 }
