@@ -14,14 +14,16 @@ import androidx.appcompat.app.AppCompatActivity
 class LetterActivity : AppCompatActivity() {
 
     //private val images = intArrayOf(R.drawable.ic_launcher_background,
-        //R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_background)
-    private  val images = intArrayOf(R.drawable.slide01, R.drawable.slide02, R.drawable.slide03,
+    //R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_background)
+    private val images = intArrayOf(
+        R.drawable.slide01, R.drawable.slide02, R.drawable.slide03,
         R.drawable.slide04, R.drawable.slide05, R.drawable.slide06, R.drawable.slide07,
         R.drawable.slide08, R.drawable.slide09, R.drawable.slide10, R.drawable.slide11,
         R.drawable.slide12, R.drawable.slide13, R.drawable.slide14, R.drawable.slide15,
         R.drawable.slide16, R.drawable.slide17, R.drawable.slide18, R.drawable.slide19,
         R.drawable.slide20, R.drawable.slide21, R.drawable.slide22, R.drawable.slide23,
-        R.drawable.slide24, R.drawable.slide25, R.drawable.slide26)
+        R.drawable.slide24, R.drawable.slide25, R.drawable.slide26
+    )
     private var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,7 @@ class LetterActivity : AppCompatActivity() {
 
         val clickedPosition = intent.extras?.get("POSITION") as Int
         position = clickedPosition
-        imageSwitcher?.setFactory{
+        imageSwitcher?.setFactory {
             val imageView = ImageView(applicationContext)
             imageView
         }
@@ -50,7 +52,7 @@ class LetterActivity : AppCompatActivity() {
         // previous button functionality
         prev.setOnClickListener {
             position -= 1
-            if(position == 0){
+            if (position == 0) {
                 imageSwitcher?.setImageResource(images[position])
 
                 prev.setVisibility(View.INVISIBLE)
@@ -58,8 +60,7 @@ class LetterActivity : AppCompatActivity() {
 
                 next.setVisibility(View.VISIBLE)
                 lastPage.isEnabled = true
-            }
-            else if(position in 0..25){
+            } else if (position in 0..25) {
                 imageSwitcher?.setImageResource(images[position])
 
                 prev.setVisibility(View.VISIBLE)
@@ -72,7 +73,7 @@ class LetterActivity : AppCompatActivity() {
         // next button functionality
         next.setOnClickListener {
             position += 1
-            if(position == images.size - 1){
+            if (position == images.size - 1) {
                 imageSwitcher?.setImageResource(images[position])
 
                 next.setVisibility(View.INVISIBLE)
@@ -80,8 +81,7 @@ class LetterActivity : AppCompatActivity() {
 
                 prev.setVisibility(View.VISIBLE)
                 firstPage.isEnabled = true
-            }
-            else if(position in 0..25){
+            } else if (position in 0..25) {
                 imageSwitcher?.setImageResource(images[position])
 
                 prev.setVisibility(View.VISIBLE)
@@ -117,23 +117,23 @@ class LetterActivity : AppCompatActivity() {
         }
 
         // overview Page button functionality
-        overviewPage.setOnClickListener{
+        overviewPage.setOnClickListener {
             val intenta = Intent(this, MainActivity::class.java)
             startActivity(intenta)
         }
 
-        if(position==0){
+        if (position == 0) {
             prev.setVisibility(View.INVISIBLE)
-        }else{
+        } else {
             prev.setVisibility(View.VISIBLE)
         }
-        if(position==images.size - 1){
+        if (position == images.size - 1) {
             next.setVisibility(View.INVISIBLE)
-        }else{
+        } else {
             next.setVisibility(View.VISIBLE)
         }
 
         firstPage.isEnabled = position != 0
-        lastPage.isEnabled = position != images.size-1
+        lastPage.isEnabled = position != images.size - 1
     }
 }

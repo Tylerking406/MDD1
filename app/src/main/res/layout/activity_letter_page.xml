@@ -1,110 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".LetterActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/imageContainer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttonsContainer">
-
-
-        <ImageButton
-            android:id="@+id/buttonPrev"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/primary"
-            android:src="@drawable/prev_icon"
-            android:contentDescription="@string/buttonNext"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageSwitcher
-            android:id="@+id/imageSwitcher"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_weight="1"
-            android:inAnimation="@android:anim/slide_in_left"
-            android:outAnimation="@android:anim/slide_out_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/buttonNext"
-            app:layout_constraintStart_toEndOf="@id/buttonPrev"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/buttonNext"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/primary"
-            android:src="@drawable/next_icon"
-            android:contentDescription="@string/buttonPrev"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/buttonsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="297dp"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageContainer">
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        tools:context=".LetterActivity">
 
         <LinearLayout
+            android:id="@+id/imageContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="320dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/buttonsContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageButton
+                android:id="@+id/buttonPrev"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/primary"
+                android:contentDescription="@string/buttonNext"
+                android:src="@drawable/prev_icon"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageSwitcher
+                android:id="@+id/imageSwitcher"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:layout_weight="1"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonNext"
+                app:layout_constraintStart_toEndOf="@id/buttonPrev"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/buttonNext"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/primary"
+                android:contentDescription="@string/buttonPrev"
+                android:src="@drawable/next_icon"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="297dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonFirst"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
+                    android:text="@string/buttonFirstPage"
+                    android:textColor="#616161"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonLast"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/primary"
+                    android:backgroundTint="@color/primary"
+                    android:text="@string/buttonLastPage"
+                    android:textColor="#616161"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/buttonFirst"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
+                android:id="@+id/buttonOverview"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@color/primary"
-                android:backgroundTint="@color/primary"
-                android:text="@string/buttonFirstPage"
-                android:textColor="#616161"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/buttonLast"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:background="@color/primary"
-                android:backgroundTint="@color/primary"
-                android:text="@string/buttonLastPage"
-                android:textColor="#616161"
-                android:textSize="16sp"
+                android:backgroundTint="@color/secondary"
+                android:text="@string/buttonOverview"
+                android:textColor="#455A64"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonOverview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondary"
-            android:text="@string/buttonOverview"
-            android:textColor="#455A64"
-            android:textStyle="bold" />
-    </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
