@@ -31,4 +31,5 @@
     <string name="buttonPrev">Prev</string>
     <string name="buttonNext">Next</string>
     <string name="buttonOverview">Overview Page</string>
+    <string name="todo">TODO</string>
 </resources>

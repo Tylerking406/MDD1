@@ -3,6 +3,7 @@ package com.cscmdd.alphabetbook
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -12,8 +13,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.drawable.toDrawable
 import java.io.File
 import java.io.OutputStream
 import java.util.*
@@ -23,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private  var readPermissionGranted = false
     private  var writePermissionGranted = false
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,11 +58,27 @@ class MainActivity : AppCompatActivity() {
 
 
         val intent = Intent(this, LetterActivity::class.java)
-        val img = findViewById<ImageView>(R.id.image1)
+        val img = findViewById<ImageView>(R.id.imageView2)
+
+
+        val images = intArrayOf(R.drawable.slide01, R.drawable.slide02, R.drawable.slide03,
+            R.drawable.slide04, R.drawable.slide05, R.drawable.slide06, R.drawable.slide07,
+            R.drawable.slide08, R.drawable.slide09, R.drawable.slide10, R.drawable.slide11,
+            R.drawable.slide12, R.drawable.slide13, R.drawable.slide14, R.drawable.slide15,
+            R.drawable.slide16, R.drawable.slide17, R.drawable.slide18, R.drawable.slide19,
+            R.drawable.slide20, R.drawable.slide21, R.drawable.slide22, R.drawable.slide23,
+            R.drawable.slide24, R.drawable.slide25, R.drawable.slide26)
+        for(i in 0..25){
+            val bitmap = BitmapFactory.decodeResource(resources,images[i])
+           // val bit = img.setImageBitmap(bitmap)
+            saveImage(bitmap)
+        }
+
         buttonA.setOnClickListener{
 
-            val bitmap = img.toDrawable().toBitmap()
-            saveImage(bitmap)
+           // val bitmap = BitmapFactory.decodeResource(resources,R.drawable.slide01)
+           // val bit = img.setImageBitmap(bitmap)
+          //  saveImage(bitmap)
 
 
             intent.putExtra("POSITION", 0)

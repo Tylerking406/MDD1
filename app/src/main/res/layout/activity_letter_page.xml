@@ -43,7 +43,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/buttonNext"
                 app:layout_constraintStart_toEndOf="@id/buttonPrev"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+            </ImageSwitcher>
 
             <ImageButton
                 android:id="@+id/buttonNext"
@@ -108,6 +110,8 @@
                 android:text="@string/buttonOverview"
                 android:textColor="#455A64"
                 android:textStyle="bold" />
+
+
         </LinearLayout>
 
 

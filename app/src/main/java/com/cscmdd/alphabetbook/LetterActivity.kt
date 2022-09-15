@@ -15,7 +15,7 @@ class LetterActivity : AppCompatActivity() {
 
     //private val images = intArrayOf(R.drawable.ic_launcher_background,
         //R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_background)
-    private  val images = intArrayOf(R.drawable.slide01, R.drawable.slide02, R.drawable.slide03,
+      val images = intArrayOf(R.drawable.slide01, R.drawable.slide02, R.drawable.slide03,
         R.drawable.slide04, R.drawable.slide05, R.drawable.slide06, R.drawable.slide07,
         R.drawable.slide08, R.drawable.slide09, R.drawable.slide10, R.drawable.slide11,
         R.drawable.slide12, R.drawable.slide13, R.drawable.slide14, R.drawable.slide15,

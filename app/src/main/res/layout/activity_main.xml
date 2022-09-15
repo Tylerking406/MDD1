@@ -13,11 +13,16 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="412dp"
+            android:layout_height="725dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
             android:orientation="vertical"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
             <!-- A to D Layout-->
 
@@ -464,7 +469,16 @@
                     android:textAllCaps="false"
                     android:textColor="#616161"
                     android:textSize="20sp" />
+
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription,HardcodedText" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
